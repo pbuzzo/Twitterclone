@@ -1,0 +1,14 @@
+<h1>Notifications</h1>
+<button>
+    <a href="/">Home</a>
+</button>
+<BR>
+<HR>
+{% for item in notifications %}
+    {{ item.author }}<BR>
+    {{ item.tweet }}<BR>
+    {{ item.tweet.description }}<BR>
+    {{ item.timestamp }}
+    <BR>
+    <HR>
+{% endfor %}

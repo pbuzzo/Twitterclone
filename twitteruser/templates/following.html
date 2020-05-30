@@ -1,0 +1,10 @@
+<h2>These are tweets from the people you follow!</h2>
+{% for item in tweets %}
+    <h1>{{ tweet.title }}</h1>
+    <h2><a href="/user/{{ tweet.author.id }}/"> {{ tweet.author }}</a></h2>
+    <h2>Time Made:  {{ tweet.date }}</h2>
+
+    <h3>{{ tweet.description }}</h3>
+
+    <HR>
+{% endfor %}

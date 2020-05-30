@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<main>
+    <html>
+        <body>
+            <h1>{{ message }}</h1>
+
+            {% if request.user.is_authenticated %}
+                <h1>TwitterClone</h1>
+                <h3 class='title_div'>Welcome Back, {{request.user.username}}!</h3>
+                &nbsp;
+                <p><a href="{% url 'tweet_add_view' %}"> Add Tweet</a> | <a href='logout/'>Logout</a></p>
+                <p>New Notifications: {{ notifs_count }} {% if notifs_count > 0 %}➡️ <a href='notifications/{{request.user.id}}/'>Check Them Out!</a>{% endif %}</p>
+                &nbsp;
+                <div class="basicbox">
+                    <h4>Check Out All Current Tweets Below!...</h4>
+                    <hr/>
+                    &nbsp;
+                    {% for item in tweets %}
+                        {{ item.title }}<BR>
+                        {{ item.date }}<BR>
+                        <a href='user/{{item.author.id}}/'>{{ item.author }}</a><BR>
+                        {{ item.description }}<BR>
+                        <button>
+                            <a href='tweet/{{item.id}}/'>Tweet Details</a>
+                        </button>
+                        <button>
+                            <a href='follow/{{item.author.id}}/'>Follow {{ item.author }}</a>
+                        </button>
+                        {% if item.author in following %}
+                            <button>
+                                <a href='unfollow/{{item.author.id}}/'>Unfollow {{ item.author }}</a>
+                            </button>
+                        {% endif %}
+                        <BR>
+                        <HR>
+                        <HR>
+                        <BR>
+                    {% endfor %}
+                    <h2>Tweets from who you follow!</h2>
+                    {% for item in follow_tweets %}
+                        {{ item.title }}<BR>
+                        {{ item.date }}<BR>
+                        <a href='user/{{item.author.id}}/'>{{ item.author }}</a><BR>
+                        {{ item.description }}<BR>
+                        <button>
+                            <a href='tweet/{{item.id}}/'>Tweet Details</a>
+                        </button>
+                        <button>
+                            <a href='follow/{{item.author.id}}/'>Follow {{ item.author }}</a>
+                        </button>
+                        {% if item.author in following %}
+                            <button>
+                                <a href='unfollow/{{item.author.id}}/'>Unfollow {{ item.author }}</a>
+                            </button>
+                        {% endif %}
+                        <BR>
+                        <HR>
+                        <HR>
+                        <BR>
+                    {% empty %}
+                        <p>No Tweets At The Moment! Go Follow More People! Don't Be Shy!</p>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p><a href='login/'>Login</a> | <a href="{% url 'user_add_view' %}">Sign Up</a><p>
+                &nbsp;
+                <div>
+                    <h3>Log In Or Sign Up To Gain Access To All Of Your Current Tweets</h3>
+                </div>
+            {% endif %}
+
+
+            &nbsp;
+            &nbsp;
+            &nbsp;
+        </body>
+        
+    </html>
+</main>

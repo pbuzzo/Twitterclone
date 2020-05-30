@@ -1,0 +1,17 @@
+Resources: 
+
+- https://github.com/IQSS/geoconnect/issues/121
+- https://stackoverflow.com/questions/29586373/valueerror-related-model-umutech-branch-cannot-be-resolved
+- https://stackoverflow.com/questions/33406313/how-to-match-any-string-from-a-list-of-strings-in-regular-expressions-in-python
+- https://stackoverflow.com/questions/3040716/python-elegant-way-to-check-if-at-least-one-regex-in-list-matches-a-string
+- https://stackoverflow.com/questions/10880813/typeerror-sequence-item-0-expected-string-int-found
+- https://stackoverflow.com/questions/4532681/how-to-remove-all-of-the-data-in-a-table-using-django
+- https://stackoverflow.com/questions/44396508/django-filter-queryset-in-for-every-item-in-list-2-0
+- https://stackoverflow.com/questions/51663212/how-to-check-if-value-occurs-in-a-field-of-a-model-list-in-django
+- https://stackoverflow.com/questions/52650959/django-how-to-update-the-datetimefield-of-model-by-the-view
+- https://stackoverflow.com/questions/46270452/django-notification-system
+- https://docs.djangoproject.com/en/3.0/topics/http/shortcuts/
+- https://stackoverflow.com/questions/45768190/typeerror-manyrelatedmanager-object-is-not-iterable
+- https://docs.djangoproject.com/en/3.0/topics/db/queries/
+- https://www.youtube.com/watch?v=29ESY8xQN84
+- https://stackoverflow.com/questions/36852324/in-django-what-does-symmetrical-true-do

@@ -1,0 +1,16 @@
+<div class="basicbox">
+    <h1>{{ user.username }}</h1>
+    <button>
+        <a href='/'>Home {{ item.author }}</a>
+    </button>
+    <h3>You have made {{ tweets|length }} Tweets<h3>
+    <h2>Current Tweets: </h2>
+
+    <ul>
+        {% for tweet in tweets %}
+            {% if tweet.author == user %}
+                <li><a href="{% url 'tweet_details' id=tweet.id %}"> {{ tweet.title }}</a> </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
