@@ -4,7 +4,7 @@ from notification import views
 urlpatterns = [
     path(
         'notifications/<int:id>/',
-        views.notification_views,
+        views.NotificationView.as_view(),
         name="notification_view"
     ),
 ]

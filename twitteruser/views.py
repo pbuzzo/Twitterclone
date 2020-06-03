@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from twitteruser.models import TwitterUser
 from tweet.models import Tweet
 from notification.models import Notification
+from django.views.generic import View
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def index(request):
@@ -35,15 +37,27 @@ def index(request):
             request, html, {"message": message}
         )
 
+# OLD
+# @login_required
+# def user_details(request, id):
+#     user = TwitterUser.objects.get(id=id)
+#     tweets = Tweet.objects.all()
+#     return render(
+#         request, "user_details.html",
+#         {"user": user, "tweets": tweets}
+#     )
 
-@login_required
-def user_details(request, id):
-    user = TwitterUser.objects.get(id=id)
-    tweets = Tweet.objects.all()
-    return render(
-        request, "user_details.html",
-        {"user": user, "tweets": tweets}
-    )
+
+# NEW
+class UserDetails(LoginRequiredMixin, View):
+    def get(self, request, id):
+        user = TwitterUser.objects.get(id=id)
+        tweets = Tweet.objects.all()
+        return render(
+            request, "user_details.html",
+            {"user": user, "tweets": tweets}
+        )
+
 
 
 @login_required
